@@ -1,0 +1,78 @@
+---
+basePath: "/"
+paths:
+  /newCustomer:
+    post:
+      summary: "New Customer"
+      deprecated: false
+      produces:
+        - "application/json;charset=UTF-8"
+      description: "New Customer to Merriment"
+      operationId: "newCustomer"
+      responses:
+        200:
+          description: "Successful Response"
+          schema:
+            $ref: "#/definitions/ResponseMetaData"
+        400:
+          schema:
+            $ref: "#/definitions/MerrimentError"
+          description: "Y803 : eventName required<br>Y803 : callbackUrl required<br>Y800 : Invalid value for callbackUrl"
+        401:
+          description: "Unauthorized"
+        404:
+          description: "Not Found"
+      parameters:
+        - schema:
+            $ref: "#/definitions/NewCustomerRequest"
+          in: "body"
+          name: "NewCustomerRequest"
+          description: "newCustomerRequest"
+          required: true
+      tags:
+        - "Customer"
+      consumes:
+        - "application/json"
+definitions:
+  NewCustomerRequest:
+    type: "object"
+    title: "NewCustomerRequest"
+    properties:
+      userName:
+        type: "string"
+      password:
+        type: "string"
+      serviceCode:
+        type: "string"
+  ResponseMetaData:
+    type: "object"
+    title: "Response"
+    properties:
+      message:
+        type: "string"
+      statusCode:
+        type: "string"
+      errorDesInfo:
+        type: "array"
+        items:
+          $ref: "#/definitions/MerrimentError"
+  MerrimentError:
+    type: "object"
+    title: "ErrorDescription"
+    properties:
+      errorCode:
+        type: "string"
+      errorMessage:
+        type: "string"
+swagger: "2.0"
+info:
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+  contact:
+    name: "API Development Team"
+  title: "Register Customer"
+  version: "1.0.0"
+tags:
+  - name: "Customer"
+    description: "Customer API"
