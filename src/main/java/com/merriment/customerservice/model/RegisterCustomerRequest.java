@@ -43,6 +43,12 @@ public class RegisterCustomerRequest {
   @JsonProperty("emailAddress")
   private String emailAddress = null;
 
+  @JsonProperty("password")
+  private String password = null;
+
+  @JsonProperty("serviceCode")
+  private String serviceCode = null;
+
   @JsonProperty("addressDetail")
   private AddressDetail addressDetail = null;
 
@@ -100,6 +106,14 @@ public class RegisterCustomerRequest {
     return emailAddress;
   }
 
+  @ApiModelProperty(value = "")
+  public String getPassword() {
+    return password;}
+
+  @ApiModelProperty(value = "")
+  public String getServiceCode() {
+    return serviceCode;}
+
   public RegisterCustomerRequest addressDetail(AddressDetail addressDetail) {
     this.addressDetail = addressDetail;
     return this;
@@ -134,12 +148,14 @@ public class RegisterCustomerRequest {
         Objects.equals(this.telephoneCode, registerCustomerRequest.telephoneCode) &&
         Objects.equals(this.telephoneNumber, registerCustomerRequest.telephoneNumber) &&
         Objects.equals(this.emailAddress, registerCustomerRequest.emailAddress) &&
+            Objects.equals(this.emailAddress, registerCustomerRequest.password) &&
+            Objects.equals(this.emailAddress, registerCustomerRequest.serviceCode) &&
         Objects.equals(this.addressDetail, registerCustomerRequest.addressDetail);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(userName, firstName, lastName, telephoneCode, telephoneNumber, emailAddress, addressDetail);
+    return Objects.hash(userName, firstName, lastName, telephoneCode, telephoneNumber, emailAddress, password, serviceCode, addressDetail);
   }
 
 
@@ -154,6 +170,8 @@ public class RegisterCustomerRequest {
     sb.append("    telephoneCode: ").append(toIndentedString(telephoneCode)).append("\n");
     sb.append("    telephoneNumber: ").append(toIndentedString(telephoneNumber)).append("\n");
     sb.append("    emailAddress: ").append(toIndentedString(emailAddress)).append("\n");
+    sb.append("    emailAddress: ").append(toIndentedString(password)).append("\n");
+    sb.append("    emailAddress: ").append(toIndentedString(serviceCode)).append("\n");
     sb.append("    addressDetail: ").append(toIndentedString(addressDetail)).append("\n");
     sb.append("}");
     return sb.toString();

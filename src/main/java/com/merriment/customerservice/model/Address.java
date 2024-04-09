@@ -1,5 +1,7 @@
 package com.merriment.customerservice.model;
 
+import java.util.List;
+
 public class Address {
 
     private String addressLine1;
@@ -8,6 +10,16 @@ public class Address {
     private String town;
 
     private String postCode;
+
+    private List<MerrimentError> errorList;
+
+    public List<MerrimentError> getErrorList() {
+        return errorList;
+    }
+
+    public void setErrorList(List<MerrimentError> errorList) {
+        this.errorList = errorList;
+    }
 
     public String getAddressLine1() {
         return addressLine1;

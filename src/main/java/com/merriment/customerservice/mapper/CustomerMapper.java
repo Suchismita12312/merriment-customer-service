@@ -7,10 +7,11 @@ import com.merriment.customerservice.model.RegisterCustomerRequest;
 
 public class CustomerMapper {
     public static Caretaker mapToCareTaker(RegisterCustomerRequest registerCustomerRequest) {
-        Caretaker caretaker = new Caretaker();
+        Caretaker caretaker = new Caretaker(registerCustomerRequest.getPassword());
         caretaker.setUserName(registerCustomerRequest.getUserName());
         caretaker.setFirstName(registerCustomerRequest.getFirstName());
         caretaker.setLastName(registerCustomerRequest.getLastName());
+        caretaker.setServiceCode(registerCustomerRequest.getServiceCode());
         Address address = new Address();
         AddressDetail addressDetail = registerCustomerRequest.getAddressDetail();
         address.setAddressLine1(addressDetail.getAddressLine1());
