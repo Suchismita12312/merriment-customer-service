@@ -12,6 +12,8 @@ public class CustomerMapper {
         caretaker.setFirstName(registerCustomerRequest.getFirstName());
         caretaker.setLastName(registerCustomerRequest.getLastName());
         caretaker.setServiceCode(registerCustomerRequest.getServiceCode());
+        caretaker.setPassword(String.valueOf(registerCustomerRequest.getPassword()));
+        caretaker.setEmail(registerCustomerRequest.getEmailAddress());
         Address address = new Address();
         AddressDetail addressDetail = registerCustomerRequest.getAddressDetail();
         address.setAddressLine1(addressDetail.getAddressLine1());

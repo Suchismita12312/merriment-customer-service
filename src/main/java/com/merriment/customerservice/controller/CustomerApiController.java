@@ -46,7 +46,7 @@ public class CustomerApiController {
 
         ResponseMetaData responseMetadata = registerCustomerRepository.registerCustomer(registerCustomerRequest,type);
 
-    return new ResponseEntity<>(responseMetadata,HttpStatus.CREATED);
+        return new ResponseEntity<>(responseMetadata,HttpStatus.CREATED);
 
 
     }

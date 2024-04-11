@@ -21,9 +21,6 @@ public class CustomerDao implements CustomerInterface{
     @Autowired
     JdbcTemplate jdbcTemplate;
 
-    @Autowired
-    Authentication authentication;
-
     @Override
     public Caretaker createCaretaker(Caretaker caretaker) {
         MerrimentError error = new MerrimentError();
@@ -31,7 +28,7 @@ public class CustomerDao implements CustomerInterface{
         Integer addressCode = createAddress(caretaker.getAddress());
         if(addressCode != 0) {
             String caretakerSql = "INSERT INTO Caretaker (CustomerId, Username, FirstName, LastName, ServiceCode, AddressCode) values" +
-                    "(?,?,?,?,?)";
+                    "(?,?,?,?,?,?)";
             int result = jdbcTemplate.update(caretakerSql, new Object[]{
                     caretaker.getCustomerId(), caretaker.getUserName(), caretaker.getFirstName(), caretaker.getLastName(), caretaker.getServiceCode(), addressCode
             });

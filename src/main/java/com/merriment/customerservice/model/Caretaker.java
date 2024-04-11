@@ -14,6 +14,10 @@ public class Caretaker {
     private String password;
     private List<MerrimentError> errorList;
 
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     public List<MerrimentError> getErrorList() {
         return errorList;
     }
